@@ -73,4 +73,4 @@ def quiz():
         }
     ]
 
-    return render_template("smiski.html")
+    return render_template("quiz.html")
