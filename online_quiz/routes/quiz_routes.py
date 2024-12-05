@@ -1,4 +1,4 @@
-from flask import Blueprint, request, render
+from flask import Blueprint, request, render_template
 from app.smiski_quiz import image, display
 
 quiz_routes = Blueprint("quiz_routes", __name__)
