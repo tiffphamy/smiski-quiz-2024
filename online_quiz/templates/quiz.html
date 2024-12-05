@@ -10,20 +10,21 @@
     </p>
 
     <!-- Question -->
-    <form method="POST" action="/submit_answer">
-        {% for question in questions %}
-            <fieldset>
-                <legend>{{ question['question'] }}</legend>
-                <div>
-                    {% for option in question['options'] %}
-                        <input type="radio" id="{{ option[0] }}" name="question_{{ loop.index }}" value="{{ option[0] }}">
-                        <label for="{{ option[0] }}">{{ option }}</label><br>
-                    {% endfor %}
-                </div>
-            </fieldset>
-        {% endfor %}
-        
-        <button type="submit" class="btn btn-success btn-lg">Submit Answers</button>
-    </form>
+    <!-- {% for question in questions %}
+        <p>{{ question["question"] }}</p>
+        <!-- <fieldset>
+            <legend>{{ question['question'] }}</legend>
+            <div>
+                {% for option in question['options'] %}
+                    <input type="radio" id="{{ option[0] }}" name="question_{{ loop.index }}" value="{{ option[0] }}">
+                    <label for="{{ option[0] }}">{{ option }}</label><br>
+                {% endfor %}
+            </div>
+        </fieldset> -->
+    {% endfor %} -->
+    
+    <img src="https://smiski.com/e/wp-content/uploads/2016/03/about01.png" class="img-fluid" alt="...">
+    <br>
+    <br><button type="submit" class="btn btn-success btn-lg">Begin!</button>
     
     {% endblock %}
