@@ -1,0 +1,47 @@
+{% extends "bootstrap_5_layout.html" %}
+{% set active_page = "home" %}
+
+{% block content %}
+
+    <h1>Welcome to Smiski World!</h1>
+
+    <p>The Smiskis are so excited to have you join us here today!<br>
+        Take a look around and get familiar with your Smiskis.<br>
+        When you're ready, select "Quiz" to find out which Smiski you are!
+    </p>
+
+    <div class="d-flex justify-content-center" style="margin-top: 2em;">
+        <a href="/quiz" class="btn btn-success btn-lg" role="button">
+            Take the Quiz
+        </a>
+    </div>
+    <p> </p>
+
+    <!-- SEE: https://getbootstrap.com/docs/5.2/components/carousel/ -->
+
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="https://littlecovecollective.com.au/cdn/shop/articles/df08b52fc92a3c97286f2b5afbec46e8.webp?v=1717322983&width=3000" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="https://snworksceo.imgix.net/njs/2df64a39-fb75-4aca-8442-d8d538661dc4.sized-1000x1000.jpg?w=1000" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="https://shopkawaiigifts.com/cdn/shop/products/dreams-usa-surprise-smiski-s1-3-gid-figure-surprise-box-37266662981846_2048x.jpg?v=1662460940" class="d-block w-100" alt="...">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+    
+
+    </div>
+
+{% endblock %}

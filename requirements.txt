@@ -14,5 +14,7 @@ pytest
 
 flask
 
+IPython
+
 #used in production to run our web app:
 gunicorn

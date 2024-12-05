@@ -1,0 +1,29 @@
+{% extends "bootstrap_5_layout.html" %}
+{% set active_page = "home" %}
+
+{% block content %}
+
+    <h1>Welcome to the Smiski Quiz!</h1>
+    
+    <p>Are you ready to find out which adorable little Smiski you are?<br>
+       Begin the quiz now to find out!
+    </p>
+
+    <!-- Question -->
+    <form method="POST" action="/submit_answer">
+        {% for question in questions %}
+            <fieldset>
+                <legend>{{ question['question'] }}</legend>
+                <div>
+                    {% for option in question['options'] %}
+                        <input type="radio" id="{{ option[0] }}" name="question_{{ loop.index }}" value="{{ option[0] }}">
+                        <label for="{{ option[0] }}">{{ option }}</label><br>
+                    {% endfor %}
+                </div>
+            </fieldset>
+        {% endfor %}
+        
+        <button type="submit" class="btn btn-success btn-lg">Submit Answers</button>
+    </form>
+    
+    {% endblock %}
