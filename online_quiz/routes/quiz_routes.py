@@ -79,15 +79,3 @@ questions = [
 @quiz_routes.route("/quiz", methods=["GET"])
 def quiz():
     return render_template('quiz.html', questions=questions)
-
-@quiz_routes.route("/results", methods=["POST"])
-def quiz_results():
-    answers = request.form
-    answer_list = list(answers.values())  # Get submitted answers
-    counters = {"A": 0, "B": 0, "C": 0, "D": 0}
-    
-    for answer in answer_list:
-        if answer.upper() in counters:
-            counters[answer.upper()] += 1
-
-    return render_template("result.html", result=result)

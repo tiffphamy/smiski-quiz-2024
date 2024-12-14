@@ -1,78 +1,193 @@
+<form action="/results">
+    <p>Question 1: <br> How do you like to spend your free time? <br></p>
+        <p>Please select your answer:</p>
+        <input type="radio" id="a1" name="q1" value="a">
+        <label for="a">a) Imagining wild scenarios and daydreaming about 'what could be.</label><br>
+        <input type="radio" id="b1" name="q1" value="b">
+        <label for="b">b) Dancing, singing, or just finding ways to add a little fun to the moment.</label><br>  
+        <input type="radio" id="c1" name="q1" value="c">
+        <label for="c">c) Curling up somewhere cozy for a much-needed nap.</label><br>
+        <input type="radio" id="d1" name="q1" value="d">
+        <label for="d">d) Thinking through big ideas and solving life's little mysteries.</label><br><br>
+
+    <p>Question 2: <br> What is your go-to vibe in a group setting? <br></p>
+        <p>Please select your answer:</p>
+        <input type="radio" id="a2" name="q2" value="a">
+        <label for="a">a) Quietly observing from the sidelines—you like to keep things low-key.</label><br>
+        <input type="radio" id="b2" name="q2" value="b">
+        <label for="b">b) Jumping in to entertain and make everyone smile—you're the fun one!</label><br>  
+        <input type="radio" id="c2" name="q2" value="c">
+        <label for="c">c) Offering thoughtful advice or coming up with a genius plan.</label><br>
+        <input type="radio" id="d2" name="q2" value="d">
+        <label for="d">d) Helping wherever you're needed—lifting the mood or literal furniture!</label><br><br>
+
+    <p>Question 3: <br> If your friends described you in one word, what would it be? <br></p>
+        <p>Please select your answer:</p>
+        <input type="radio" id="a3" name="q3" value="a">
+        <label for="a">a) Dreamy—you're always off in your own little world.</label><br>
+        <input type="radio" id="b3" name="q3" value="b">
+        <label for="b">b) Playful—you bring energy and joy wherever you go.</label><br>  
+        <input type="radio" id="c3" name="q3" value="c">
+        <label for="c">c) Relaxed—you're a chill presence who loves to recharge.</label><br>
+        <input type="radio" id="d3" name="q3" value="d">
+        <label for="d">d) Strong—you're dependable, resilient, and there when it counts.</label><br><br>
+
+    <p>Question 4: <br> What's your ideal environment? <br></p>
+        <p>Please select your answer:</p>
+        <input type="radio" id="a4" name="q4" value="a">
+        <label for="a">a) A cozy corner where you can quietly reflect or observe.</label><br>
+        <input type="radio" id="b4" name="q4" value="b">
+        <label for="b">b) A lively space with lots of energy and good vibes.</label><br>  
+        <input type="radio" id="c4" name="q4" value="c">
+        <label for="c">c) Anywhere with soft blankets and a place to snooze.</label><br>
+        <input type="radio" id="d4" name="q4" value="d">
+        <label for="d">d) Somewhere you can think, create, or tackle challenges.</label><br><br>
+
+    <p>Question 5: <br> How do you usually approach a problem? <br></p>
+        <p>Please select your answer:</p>
+        <input type="radio" id="a5" name="q5" value="a">
+        <label for="a">a) By brainstorming creative solutions and imagining the possibilities.</label><br>
+        <input type="radio" id="b5" name="q5" value="b">
+        <label for="b">b) By jumping in with enthusiasm and keeping it upbeat.</label><br>  
+        <input type="radio" id="c5" name="q5" value="c">
+        <label for="c">c) By staying calm, assessing the situation, and taking your time.</label><br>
+        <input type="radio" id="d5" name="q5" value="d">
+        <label for="d">d) By tackling it head-on with focus and determination.</label><br><br>
+
+    <p>Question 6: <br> What's your ultimate self-care routine? <br></p>
+        <p>Please select your answer:</p>
+        <input type="radio" id="a6" name="q6" value="a">
+        <label for="a">a) Letting your mind wander with a good book or journaling.</label><br>
+        <input type="radio" id="b6" name="q6" value="b">
+        <label for="b">b) Doing something fun like dancing or catching up with friends.</label><br>  
+        <input type="radio" id="c6" name="q6" value="c">
+        <label for="c">c) Relaxing in your favorite spot with cozy vibes all around.</label><br>
+        <input type="radio" id="d6" name="q6" value="d">
+        <label for="d">d) Engaging in a project or hobby that recharges your energy.</label><br><br>
+
+    <p>Question 7: <br> What type of adventure appeals to you most? <br></p>
+        <p>Please select your answer:</p>
+        <input type="radio" id="a7" name="q7" value="a">
+        <label for="a">a) A quiet retreat where you can explore new ideas and reflect.</label><br>
+        <input type="radio" id="b7" name="q7" value="b">
+        <label for="b">b) A lively road trip with spontaneous stops and laughter.</label><br>  
+        <input type="radio" id="c7" name="q7" value="c">
+        <label for="c">c) A laid-back beach day with no plans but to unwind.</label><br>
+        <input type="radio" id="d7" name="q7" value="d">
+        <label for="d">d) An active challenge.</label><br><br>
+    
+        <input type="submit" value="Submit">
+    
+</form>
+
+
+<!-- FOR LOOPING -->
 {% extends "bootstrap_5_layout.html" %}
 {% set active_page = "quiz" %}
 
 {% block content %}
+<h1>Starting Smiski Quiz...</h1>
+
+{% for x in questions %}
+    <p>{{ x.question }}</p>
+    <p>{{ x.name }}</p>
+
+    {% for key, option in x.options.items() %}
+        <p>{{ x.name }}</p>
+        <input type="radio" id="{{ key }}" name="{{ x.name }}" value="{{ key }}">
+        <label for="{{ key }}">{{ option }}</label><br>
+    {% endfor %}
     
-    <h1>Starting Smiski Quiz...</h1>
-
-    <p>Question 1: <br>
-        How do you like to spend your free time? <br>
-    </p>
-
-    <form action="/action_page.php">
-
-        <p>Please select your answer:</p>
-        <input type="radio" id="a" name="q1" value="a">
-        <label for="a">a) Imagining wild scenarios and daydreaming about 'what could be.</label><br>
-        <input type="radio" id="b" name="q1" value="b">
-        <label for="b">b) Dancing, singing, or just finding ways to add a little fun to the moment.</label><br>  
-        <input type="radio" id="c" name="q1" value="c">
-        <label for="c">c) Curling up somewhere cozy for a much-needed nap.</label><br>
-        <input type="radio" id="d" name="q1" value="d">
-        <label for="d">d) Thinking through big ideas and solving life's little mysteries.</label><br><br>
-    </form>
-
-    <p>Question 2: <br>
-        What is your go-to vibe in a group setting? <br>
-    </p>
-
-    <form action="/action_page.php">
-
-        <p>Please select your answer:</p>
-        <input type="radio" id="a" name="q2" value="a">
-        <label for="a">a) Quietly observing from the sidelines—you like to keep things low-key.</label><br>
-        <input type="radio" id="b" name="q2" value="b">
-        <label for="b">b) Jumping in to entertain and make everyone smile—you're the fun one!</label><br>  
-        <input type="radio" id="c" name="q2" value="c">
-        <label for="c">c) Offering thoughtful advice or coming up with a genius plan.</label><br>
-        <input type="radio" id="d" name="q2" value="d">
-        <label for="d">d) Helping wherever you're needed—lifting the mood or literal furniture!</label><br><br>
-    </form>
-
-    <p>Question 3: <br>
-        If your friends described you in one word, what would it be? <br>
-    </p>
-
-    <form action="/action_page.php">
-
-        <p>Please select your answer:</p>
-        <input type="radio" id="a" name="q3" value="a">
-        <label for="a">a) Dreamy—you're always off in your own little world.</label><br>
-        <input type="radio" id="b" name="q3" value="b">
-        <label for="b">b) Playful—you bring energy and joy wherever you go.</label><br>  
-        <input type="radio" id="c" name="q3" value="c">
-        <label for="c">c) Relaxed—you're a chill presence who loves to recharge.</label><br>
-        <input type="radio" id="d" name="q3" value="d">
-        <label for="d">d) Strong—you're dependable, resilient, and there when it counts.</label><br><br>
-    </form>
-
-    <p>Question 4: <br>
-        What's your ideal environment? <br>
-    </p>
-
-    <form action="/action_page.php">
-
-        <p>Please select your answer:</p>
-        <input type="radio" id="a" name="q4" value="a">
-        <label for="a">a) A cozy corner where you can quietly reflect or observe.</label><br>
-        <input type="radio" id="b" name="q4" value="b">
-        <label for="b">b) A lively space with lots of energy and good vibes.</label><br>  
-        <input type="radio" id="c" name="q4" value="c">
-        <label for="c">c) Anywhere with soft blankets and a place to snooze.</label><br>
-        <input type="radio" id="d" name="q4" value="d">
-        <label for="d">d) Somewhere you can think, create, or tackle challenges.</label><br><br>
-    </form>
-
-    <input type="submit" value="Submit">
+    <br>
+{% endfor %}
 
 {% endblock %}
+
+
+
+
+{% for question in questions %}
+        <p>{{ question.question }}</p>
+        <ul>
+        {% for key, option in question.options.items() %}
+        <li>{{ option }}</li>
+        {% endfor %}
+        </ul>
+
+
+<!-- RESULTS DICTIONARY -->
+
+# Determine the result
+    if counters["A"] > 3:
+        result = {
+            "result": "You are: SMISKI DAYDREAMING!",
+            "description": "You're a whimsical wanderer, lost in the clouds but somehow always on time for dessert. Your imagination is your playground,\n"
+                "and you're never short of quirky ideas or 'what if' scenarios. Whether it's pondering life's mysteries or deciding what the moon smells like,\n"
+                "you're a creative soul who sees the world through a unique lens. Sure, you might forget where you put your keys (again), but you've probably already\n"
+                "envisioned a secret portal hidden in the couch cushions anyway. Keep dreaming, you delightful daydreamer—you're proof that a little whimsy makes the world brighter!",
+            "url": "https://www.littlemarmaille.fr/wp-content/uploads/2023/11/smiski-serie-living3.png"
+        }
+    elif counters["B"] >= 3:
+        result = {
+            "result": "You are: SMISKI PLAYING!",
+            "description": "You're the life of the invisible party, a joyful creator who turns even the quietest moments into a celebration. "
+                        "Whether it's tapping out rhythms on a desk or choreographing secret dance moves in the kitchen, you find delight in simple pleasures. "
+                        "Others can't help but smile when they're around you—your energy is contagious! "
+                        "Keep playing your unique tune, you maestro of mischief.",
+            "url": "https://media.karousell.com/media/photos/products/2024/9/12/smiski_living__playing_flute_1726152229_3bf7f0b5_progressive.jpg"
+        }
+    elif counters["C"] > 3:
+        result = {
+            "result": "You are: SMISKI NAP TIME!",
+            "description": "A true champion of rest and relaxation, you've mastered the art of doing nothing—and doing it well. "
+                        "Whether it's a 10-minute snooze or a full-blown nap marathon, you know that recharging is the secret to your brilliance. "
+                        "Some might call you “lazy,” but you call it “energy management.” Dream big, nap often, and keep being unapologetically chill.",
+            "url": "https://down-my.img.susercontent.com/file/3b89d452f033e9251f289a976228d56b"
+        }
+    elif counters["D"] > 3:
+        result = {
+            "result": "You are: SMISKI LIFTING!",
+            "description": "You're the go-to Smiski for heavy lifting—whether it's weights, furniture, or the emotional baggage of your friends. "
+                        "Your strength isn't just physical; you're resilient, determined, and always ready to lend a hand (or two). But let's be honest, you look really cool doing it. "
+                        "Keep lifting, you powerhouse of positivity—you've got this!",
+            "url": "https://www.publicisdrugstore.com/17949-square_large_default/smiski-living-room.jpg"
+        }
+    elif counters["A"] == 3 and counters["D"] == 3:
+        result = {
+            "result": "You are: SMISKI THINKING!",
+            "description": "You’re a deep thinker with a head full of ideas, questions, and maybe a conspiracy theory or two. "
+                        "Others might see you staring off into space, but you're busy solving the mysteries of the universe—or deciding what's for dinner. "
+                        "Your curiosity knows no bounds, and you're always finding creative solutions to life's little puzzles. "
+                        "Keep pondering, philosopher-in-residence.",
+            "url": "https://media.karousell.com/media/photos/products/2024/5/24/smiski_thinking_1716567214_22088f5b_progressive"
+        }
+    elif counters["A"] == 3 and counters["C"] == 3:
+        result = {
+            "result": "You are: SMISKI HIDING!",
+            "description": "You're the ultimate undercover operator, a cozy enigma wrapped in mystery. "
+                        "You prefer the quiet corners of the world, where you can observe, reflect, and occasionally snack in peace. "
+                        "People might not always notice you right away, but when they do, they discover a loyal and thoughtful companion who notices everything. "
+                        "Keep hiding—but don't be afraid to step into the spotlight every once in a while.",
+            "url": "https://media.karousell.com/media/photos/products/2024/11/5/smiski_living_series__hiding_1730796363_ade886ef_progressive.jpg"
+        }
+    else:
+        result = {
+            "result": "You are: RAINBOM SMISKI!",
+            "description": "You're a burst of energy and surprises! One moment you're lost in thought, the next you're cracking jokes or planning spontaneous adventures. "
+                        "Your vibe is ever-changing, like a storm full of colorful chaos—and that's what makes you so fun to be around. "
+                        "Keep shining, you unpredictable Rainbomb!",
+            "url": "https://www.japanla.com/cdn/shop/files/rainbombfloating.jpg?v=1699391153&width=320"
+        }
+
+
+@quiz_routes.route("/results", methods=["POST"])
+def quiz_results():
+    answers = request.form
+    answer_list = list(answers.values())  # Get submitted answers
+    counters = {"A": 0, "B": 0, "C": 0, "D": 0}
+    
+    for answer in answer_list:
+        if answer.upper() in counters:
+            counters[answer.upper()] += 1
+
+    return render_template("result.html", result=result)

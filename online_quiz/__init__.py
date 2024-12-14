@@ -5,6 +5,7 @@ from flask import Flask
 from online_quiz.routes.home_routes import home_routes
 from online_quiz.routes.prequiz_routes import prequiz_routes
 from online_quiz.routes.quiz_routes import quiz_routes
+from online_quiz.routes.results_routes import results_routes
 
 def create_app():
     app = Flask(__name__)
@@ -12,6 +13,7 @@ def create_app():
     app.register_blueprint(home_routes)
     app.register_blueprint(prequiz_routes)
     app.register_blueprint(quiz_routes)
+    app.register_blueprint(results_routes)
     return app
 
 if __name__ == "__main__":
