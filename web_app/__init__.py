@@ -2,10 +2,10 @@
 import os
 from flask import Flask
 
-from online_quiz.routes.home_routes import home_routes
-from online_quiz.routes.prequiz_routes import prequiz_routes
-from online_quiz.routes.quiz_routes import quiz_routes
-from online_quiz.routes.results_routes import results_routes
+from web_app.routes.home_routes import home_routes
+from web_app.routes.prequiz_routes import prequiz_routes
+from web_app.routes.quiz_routes import quiz_routes
+from web_app.routes.results_routes import results_routes
 
 def create_app():
     app = Flask(__name__)
