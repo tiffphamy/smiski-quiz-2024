@@ -2,5 +2,17 @@
 {% set active_page = "results" %}
 
 {% block content %}
-    <h1>Printing Results...</h1>
+
+<h3 class="text-center">You are:</h3>
+
+<div class="container-xxl" style="background-color: #AEDCAE; text-align: center;">
+    <h1>{{ result.smiski }}!</h1>
+</div>
+<p>{{ result.description }}</p>
+<img src="{{ result.url }}" alt="{{ result.smiski }}" style="max-width: 100%; height: 400px; display: block; margin: 0 auto;">
+
+<br><div class="d-flex justify-content-center" style="margin-top: 2em;">
+    <a class="btn btn-success btn-lg" href="/quiz" role="button">Retake Quiz!</a>
+    </div>
+
 {% endblock %}

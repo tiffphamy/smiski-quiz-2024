@@ -2,25 +2,29 @@
 {% set active_page = "quiz" %}
 
 {% block content %}
-<h1>Starting Smiski Quiz...</h1>
+<img src="https://i.postimg.cc/q7VK3XvM/smiski-header.png" alt="Stars" style="max-width: 200%; height: 150px; display: block; margin: 0 auto;">
 
-<form action="/results">
-{% for x in questions %}
-    <p>{{ x.question }}</p>
-
-    {% for key, option in x.options.items() %}
-        <input type="radio" id="a{{ x.name }}" name="q{{ x.name }}" value="{{ key }}">
-        <label for="{{ key }}">{{ option }}</label><br>
+<form action="/results" method="POST">
+    {% for question in questions %}
+        <p class="h3 text-success">{{ question.question }}</p>
+        <div class="row">
+            {% for key, option in question.options.items() %}
+                <div class="col-12 col-md-6 mb-3">
+                    <div class="card text-center" style="background-color: #AEDCAE; padding: 15px;">
+                        <input type="radio" id="q{{ question.name }}{{ key }}" name="q{{ question.name }}" value="{{ key }}" class="btn-check">
+                        <label for="q{{ question.name }}{{ key }}" class="card-body btn btn-outline-dark w-100">
+                            {{ option }}
+                        </label>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <br>
     {% endfor %}
-    <br>
-{% endfor %}
-
-<div class="d-flex justify-content-center" style="margin-top: 2em;">
-    <a href="/results" class="btn btn-success btn-lg" role="button">
-        Submit!
-    </a>
-</div>
-
+    
+    <div class="d-flex justify-content-center" style="margin-top: 2em;">
+        <button type="submit" class="btn btn-success btn-lg">Submit</button>
+    </div>
 </form>
 
 {% endblock %}

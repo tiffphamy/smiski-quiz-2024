@@ -191,3 +191,28 @@ def quiz_results():
             counters[answer.upper()] += 1
 
     return render_template("result.html", result=result)
+
+
+<!-- {% extends "bootstrap_5_layout.html" %}
+{% set active_page = "quiz" %}
+
+{% block content %}
+<h1>Starting Smiski Quiz...</h1>
+
+<form action="/results" method="POST">
+    {% for question in questions %}
+        <p>{{ question.question }}</p>
+        {% for key, option in question.options.items() %}
+            <input type="radio" id="q{{ question.name }}{{ key }}" name="q{{ question.name }}" value="{{ key }}">
+            <label for="q{{ question.name }}{{ key }}">{{ option }}</label><br>
+        {% endfor %}
+        <br>
+    {% endfor %}
+    
+    <div class="d-flex justify-content-center" style="margin-top: 2em;">
+        <button type="submit" class="btn btn-success btn-lg">Submit</button>
+    </div>
+</form>
+
+
+{% endblock %} -->
