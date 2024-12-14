@@ -1,30 +1,26 @@
-{% extends "bootstrap_5_layout.html" %}
-{% set active_page = "home" %}
+% extends "bootstrap_5_layout.html" %}
+{% set active_page = "quiz" %}
 
 {% block content %}
+<h1>Starting Smiski Quiz...</h1>
 
-    <h1>Welcome to the Smiski Quiz!</h1>
-    
-    <p>Are you ready to find out which adorable little Smiski you are?<br>
-       Begin the quiz now to find out!
-    </p>
+<form action="/results">
+{% for x in questions %}
+    <p>{{ x.question }}</p>
 
-    <!-- Question -->
-    <!-- {% for question in questions %}
-        <p>{{ question["question"] }}</p>
-        <!-- <fieldset>
-            <legend>{{ question['question'] }}</legend>
-            <div>
-                {% for option in question['options'] %}
-                    <input type="radio" id="{{ option[0] }}" name="question_{{ loop.index }}" value="{{ option[0] }}">
-                    <label for="{{ option[0] }}">{{ option }}</label><br>
-                {% endfor %}
-            </div>
-        </fieldset> -->
-    {% endfor %} -->
-    
-    <img src="https://smiski.com/e/wp-content/uploads/2016/03/about01.png" class="img-fluid" alt="...">
+    {% for key, option in x.options.items() %}
+        <input type="radio" id="a{{ x.name }}" name="q{{ x.name }}" value="{{ key }}">
+        <label for="{{ key }}">{{ option }}</label><br>
+    {% endfor %}
     <br>
-    <br><button type="submit" class="btn btn-success btn-lg">Begin!</button>
-    
-    {% endblock %}
+{% endfor %}
+
+<div class="d-flex justify-content-center" style="margin-top: 2em;">
+    <a href="/results" class="btn btn-success btn-lg" role="button">
+        Submit!
+    </a>
+</div>
+
+</form>
+
+{% endblock %}

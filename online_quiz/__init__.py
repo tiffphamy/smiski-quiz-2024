@@ -2,14 +2,16 @@
 import os
 from flask import Flask
 
-#from web_app.routes.smiski_routes import smiski_routes
 from online_quiz.routes.home_routes import home_routes
+from online_quiz.routes.prequiz_routes import prequiz_routes
+from online_quiz.routes.quiz_routes import quiz_routes
 
 def create_app():
     app = Flask(__name__)
 
     app.register_blueprint(home_routes)
-    #app.register_blueprint(smiski_routes)
+    app.register_blueprint(prequiz_routes)
+    app.register_blueprint(quiz_routes)
     return app
 
 if __name__ == "__main__":

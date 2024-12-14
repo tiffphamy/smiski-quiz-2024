@@ -1,0 +1,78 @@
+{% extends "bootstrap_5_layout.html" %}
+{% set active_page = "quiz" %}
+
+{% block content %}
+    
+    <h1>Starting Smiski Quiz...</h1>
+
+    <p>Question 1: <br>
+        How do you like to spend your free time? <br>
+    </p>
+
+    <form action="/action_page.php">
+
+        <p>Please select your answer:</p>
+        <input type="radio" id="a" name="q1" value="a">
+        <label for="a">a) Imagining wild scenarios and daydreaming about 'what could be.</label><br>
+        <input type="radio" id="b" name="q1" value="b">
+        <label for="b">b) Dancing, singing, or just finding ways to add a little fun to the moment.</label><br>  
+        <input type="radio" id="c" name="q1" value="c">
+        <label for="c">c) Curling up somewhere cozy for a much-needed nap.</label><br>
+        <input type="radio" id="d" name="q1" value="d">
+        <label for="d">d) Thinking through big ideas and solving life's little mysteries.</label><br><br>
+    </form>
+
+    <p>Question 2: <br>
+        What is your go-to vibe in a group setting? <br>
+    </p>
+
+    <form action="/action_page.php">
+
+        <p>Please select your answer:</p>
+        <input type="radio" id="a" name="q2" value="a">
+        <label for="a">a) Quietly observing from the sidelines—you like to keep things low-key.</label><br>
+        <input type="radio" id="b" name="q2" value="b">
+        <label for="b">b) Jumping in to entertain and make everyone smile—you're the fun one!</label><br>  
+        <input type="radio" id="c" name="q2" value="c">
+        <label for="c">c) Offering thoughtful advice or coming up with a genius plan.</label><br>
+        <input type="radio" id="d" name="q2" value="d">
+        <label for="d">d) Helping wherever you're needed—lifting the mood or literal furniture!</label><br><br>
+    </form>
+
+    <p>Question 3: <br>
+        If your friends described you in one word, what would it be? <br>
+    </p>
+
+    <form action="/action_page.php">
+
+        <p>Please select your answer:</p>
+        <input type="radio" id="a" name="q3" value="a">
+        <label for="a">a) Dreamy—you're always off in your own little world.</label><br>
+        <input type="radio" id="b" name="q3" value="b">
+        <label for="b">b) Playful—you bring energy and joy wherever you go.</label><br>  
+        <input type="radio" id="c" name="q3" value="c">
+        <label for="c">c) Relaxed—you're a chill presence who loves to recharge.</label><br>
+        <input type="radio" id="d" name="q3" value="d">
+        <label for="d">d) Strong—you're dependable, resilient, and there when it counts.</label><br><br>
+    </form>
+
+    <p>Question 4: <br>
+        What's your ideal environment? <br>
+    </p>
+
+    <form action="/action_page.php">
+
+        <p>Please select your answer:</p>
+        <input type="radio" id="a" name="q4" value="a">
+        <label for="a">a) A cozy corner where you can quietly reflect or observe.</label><br>
+        <input type="radio" id="b" name="q4" value="b">
+        <label for="b">b) A lively space with lots of energy and good vibes.</label><br>  
+        <input type="radio" id="c" name="q4" value="c">
+        <label for="c">c) Anywhere with soft blankets and a place to snooze.</label><br>
+        <input type="radio" id="d" name="q4" value="d">
+        <label for="d">d) Somewhere you can think, create, or tackle challenges.</label><br><br>
+    </form>
+
+    <input type="submit" value="Submit">
+
+{% endblock %}

@@ -11,8 +11,8 @@ def index():
     #return "Welcome Home"
     return render_template("home.html")
 
-@home_routes.route("/quiz")
-def quiz():
-    print("QUIZ...")
+@home_routes.route("/prequiz")
+def prequiz():
+    print("PREQUIZ...")
     #return "About Me"
-    return render_template("quiz.html")
+    return render_template("prequiz.html")
