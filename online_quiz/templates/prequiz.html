@@ -1,0 +1,21 @@
+{% extends "bootstrap_5_layout.html" %}
+{% set active_page = "quiz" %}
+
+{% block content %}
+
+<div class="d-flex justify-content-center" style="margin-top: 2em;">    
+    <h1>Welcome to the Smiski Quiz!</h1>
+</div>
+
+<div class="d-flex justify-content-center" style="margin-top: 2em;"> 
+    <p>Are you ready to find out which adorable little Smiski you are? Begin the quiz now to find out!
+</div>
+<div class="d-flex justify-content-center" style="margin-top: 2em;">
+    <img src="https://smiski.com/e/wp-content/uploads/2016/03/about01.png" class="img-fluid" alt="...">
+</div>
+    
+<div class="d-flex justify-content-center" style="margin-top: 2em;">
+    <br><a class="btn btn-success btn-lg" href="/quiz" role="button">Begin!</a>
+</div>
+        
+    {% endblock %}

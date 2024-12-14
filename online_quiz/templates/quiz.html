@@ -1,30 +1,30 @@
 {% extends "bootstrap_5_layout.html" %}
-{% set active_page = "home" %}
+{% set active_page = "quiz" %}
 
 {% block content %}
+<img src="https://i.postimg.cc/q7VK3XvM/smiski-header.png" alt="Stars" style="max-width: 200%; height: 150px; display: block; margin: 0 auto;">
 
-    <h1>Welcome to the Smiski Quiz!</h1>
+<form action="/results" method="POST">
+    {% for question in questions %}
+        <p class="h3 text-success">{{ question.question }}</p>
+        <div class="row">
+            {% for key, option in question.options.items() %}
+                <div class="col-12 col-md-6 mb-3">
+                    <div class="card text-center" style="background-color: #AEDCAE; padding: 15px;">
+                        <input type="radio" id="q{{ question.name }}{{ key }}" name="q{{ question.name }}" value="{{ key }}" class="btn-check">
+                        <label for="q{{ question.name }}{{ key }}" class="card-body btn btn-outline-dark w-100">
+                            {{ option }}
+                        </label>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <br>
+    {% endfor %}
     
-    <p>Are you ready to find out which adorable little Smiski you are?<br>
-       Begin the quiz now to find out!
-    </p>
+    <div class="d-flex justify-content-center" style="margin-top: 2em;">
+        <button type="submit" class="btn btn-success btn-lg">Submit</button>
+    </div>
+</form>
 
-    <!-- Question -->
-    <!-- {% for question in questions %}
-        <p>{{ question["question"] }}</p>
-        <!-- <fieldset>
-            <legend>{{ question['question'] }}</legend>
-            <div>
-                {% for option in question['options'] %}
-                    <input type="radio" id="{{ option[0] }}" name="question_{{ loop.index }}" value="{{ option[0] }}">
-                    <label for="{{ option[0] }}">{{ option }}</label><br>
-                {% endfor %}
-            </div>
-        </fieldset> -->
-    {% endfor %} -->
-    
-    <img src="https://smiski.com/e/wp-content/uploads/2016/03/about01.png" class="img-fluid" alt="...">
-    <br>
-    <br><button type="submit" class="btn btn-success btn-lg">Begin!</button>
-    
-    {% endblock %}
+{% endblock %}
