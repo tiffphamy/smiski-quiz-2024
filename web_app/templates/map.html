@@ -2,5 +2,85 @@
 {% set active_page = "map" %}
 
 {% block content %}
-    <img src="https://cdn.mall.adeptmind.ai/https%3A%2F%2Fca.shopatshowcase.com%2Fcdn%2Fshop%2Ffiles%2FSmiski_Yoga_2.png%3Fv%3D1720791309_large.webp" alt="Map of Smiski World" style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
+<div class="d-flex justify-content-center" style="margin-top: 2em;">    
+    <h1>Welcome to Smiski World!</h1>
+</div>
+
+<style>
+    .map-container {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0 auto;
+    }
+
+    .hotspot {
+        position: absolute;
+        width: 70px;
+        height: 70px;
+        background-color: rgba(21, 255, 0, 0);
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    .callout-box {
+        position: absolute;
+        background: white;
+        border: 1px solid #ccc;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        display: none;
+        z-index: 1;
+        max-width: 200px;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+    
+</style>
+
+<div class="map-container">
+    <!-- Map Image -->
+    <img src="https://i.postimg.cc/7hJLv1Wv/Gemini-Generated-Image-da91c7da91c7da91.png" alt="Map of Smiski World" style="width: 100%;">
+
+    <!-- Hotspots -->
+    <div class="hotspot" id="hotspot1" style="top: 33%; left: 22%;" data-callout="Smiski Nap Time!"></div>
+    <div class="hotspot" id="hotspot2" style="top: 38%; left: 69%;" data-callout="Smiski Playing!"></div>
+    <div class="hotspot" id="hotspot3" style="top: 51%; left: 58%;" data-callout="Wow! You found: Smiski Hiding!"></div>
+    <div class="hotspot" id="hotspot4" style="top: 70%; left: 48%;" data-callout="Smiski Daydreaming!"></div>
+    <div class="hotspot" id="hotspot5" style="top: 26%; left: 64%;" data-callout="Smiski Lifting!"></div>
+    <div class="hotspot" id="hotspot6" style="top: 27%; left: 45%;" data-callout="Smiski Thinking!"></div>
+
+    <!-- Callout Box -->
+    <div id="callout-box" class="callout-box"></div>
+</div>
+
+<script>
+    document.querySelectorAll('.hotspot').forEach(hotspot => {
+        const calloutBox = document.getElementById('callout-box');
+
+        hotspot.addEventListener('mouseover', (e) => {
+            const text = hotspot.getAttribute('data-callout');
+            calloutBox.innerText = text;
+            calloutBox.style.display = 'block';
+            calloutBox.style.left = `${e.pageX + 10}px`;
+            calloutBox.style.top = `${e.pageY + 10}px`;
+        });
+
+        hotspot.addEventListener('mousemove', (e) => {
+            calloutBox.style.left = `${e.pageX + 10}px`;
+            calloutBox.style.top = `${e.pageY + 10}px`;
+        });
+
+        hotspot.addEventListener('mouseout', () => {
+            calloutBox.style.display = 'none';
+        });
+    });
+</script>
 {% endblock %}

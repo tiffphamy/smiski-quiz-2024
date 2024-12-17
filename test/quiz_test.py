@@ -1,8 +1,14 @@
-from flask import Flask
-from web_app.routes.quiz_routes import quiz_routes
+from app.smiski_quiz import most_common
 
-def test_quiz_route(client):
-    # Test the /quiz route
-    response = client.get("/quiz")
-    assert response.status_code == 200
-    assert b"SMISKI QUIZ..." in response.data
+def test_mostcommon():
+    answer_list = ["A", "A", "A", "A"]
+    assert most_common(answer_list) == "A"
+
+    answer_list = ["A", "B", "C", "D"]
+    assert most_common(answer_list) == "E"
+
+    answer_list = ["A", "A", "B", "C"]
+    assert most_common(answer_list) == "A"
+
+    answer_list = ["B", "B", "B", "C", "C", "B"]
+    assert most_common(answer_list) == "B"
